@@ -1,9 +1,8 @@
 export const creatorProfile = {
   name: "ARSHAAN",
-  title: "CREATIVE TECHNOLOGIST & FRONTEND ARCHITECT",
-  availability: "AVAILABLE FOR 2026 COMMISSIONS",
-  location: "NEW DELHI / GLOBAL REMOTE",
-  bio: "Specializing in high-conversion digital experiences, 3D tactile interaction, and high-performance web systems. Designing clean, physical, and memorable digital products that balance aesthetic beauty with conversion velocity.",
+  title: "Creative Technologist & Frontend Architect",
+  location: "New Delhi / Global Remote",
+  bio: "Architecting high-conversion digital flagships, 3D interactive systems, and sub-second web platforms. Combining tactile graphic design, kinetic motion physics, and conversion velocity.",
   stats: [
     { label: "PUBLISHED PROJECTS", value: "07" },
     { label: "FRAME RATE TARGET", value: "120 FPS" },
@@ -11,8 +10,8 @@ export const creatorProfile = {
     { label: "COMMISSIONS", value: "OPEN" },
   ],
   skills: [
-    "Tactile 3D Card Architecture",
-    "Tailwind CSS Systems",
+    "Tactile 3D Glassmorphism",
+    "Tailwind CSS Architecture",
     "React & Framer Motion",
     "Sub-Second Performance",
     "E-Commerce & Sports Digital Platforms",
@@ -25,182 +24,252 @@ export const projects = [
     id: "indian-celebritie",
     title: "Indian Celebritie",
     category: "Luxury Fragrance E-Commerce",
-    badge: "Bespoke",
-    theme: {
-      bg: "bg-[#EFE8DE]",
-      border: "border-[#E2D8CA]",
-      ribbon: "bg-[#2D1E14]",
-      ribbonText: "text-[#F8EFE5]",
-      accent: "#B8860B",
-    },
-    ribbonText: "Pure Fragrance Oil Sillage Telemetry",
-    caption: "Haute perfumerie storefront with accord visualizer",
-    pills: ["Fragrance", "Bespoke", "Checkout", "Lookbook"],
-    image: "./assets/projects/indian_celebritie.png",
+    industry: "Haute Perfumerie & Luxury Retail",
     liveUrl: "https://arsh44n.github.io/Indian-Celebritie/",
     displayUrl: "indian-celebritie.store",
-    description: "High-conversion luxury perfume storefront engineered with pure fragrance oil telemetry, lasting sillage visualizer, interactive accord selector, and direct checkout drawer.",
-    highlights: [
-      "Pure fragrance oil telemetry & sillage duration visualizer",
-      "One-click drawer checkout with live cart state",
-      "Interactive scent accord matrix and fragrance lookbook"
+    image: "./assets/projects/indian_celebritie.png",
+    caption: "High-conversion luxury perfume storefront with scent accord telemetry",
+    pills: ["Luxury Retail", "Fragrance Oils", "Cart Drawer", "Motion Physics"],
+    whatItDoes: "Indian Celebritie is a bespoke haute perfumerie e-commerce platform designed to convey olfactory luxury digitally. It enables connoisseurs to explore handcrafted pure perfume oils, visualize scent sillage longevity across hours, and purchase bespoke blends through an instant slide-out cart drawer without page reloads.",
+    usps: [
+      {
+        metric: "8-12 Hours",
+        title: "Sillage Telemetry Visualizer",
+        desc: "Interactive timeline demonstrating how top, heart, and base notes unfold across time."
+      },
+      {
+        metric: "0.2s Drawer",
+        title: "Zero-Latency Checkout Flow",
+        desc: "Instant slide-out cart drawer maintaining continuous shopping context."
+      },
+      {
+        metric: "100% Bespoke",
+        title: "Editorial Lookbook Experience",
+        desc: "Editorial typography and art direction designed specifically for high-ticket luxury clientele."
+      }
     ],
-    techStack: ["Tailwind CSS", "Interactive Lightbox", "Cart Drawer", "Motion Physics"]
+    whatWeDid: [
+      "Engineered real-time olfactory sillage telemetry visualizer",
+      "Built instant zero-friction slide-out cart drawer with live state synchronization",
+      "Crafted luxury editorial typography system and high-contrast product lookbook",
+      "Optimized imagery and layout shifts achieving sub-second first contentful paint"
+    ],
+    techStack: ["Tailwind CSS", "Interactive Lightbox", "Cart Drawer", "Motion Physics", "JavaScript"]
   },
   {
     id: "battle-park-india",
     title: "Battle Park India",
     category: "Sports Club & Venue Platform",
-    badge: "Night Sports",
-    theme: {
-      bg: "bg-[#E3EBE3]",
-      border: "border-[#D1DFD1]",
-      ribbon: "bg-[#163829]",
-      ribbonText: "text-[#EAF4EE]",
-      accent: "#16A34A",
-    },
-    ribbonText: "Floodlit Night Matchplay & Court Booking",
-    caption: "South Delhi premier pickleball and night venue",
-    pills: ["Pickleball", "Court Booking", "Fixtures", "Delhi NCR"],
-    image: "./assets/projects/battle_park.png",
+    industry: "Sports Facilities & Community Networks",
     liveUrl: "https://arsh44n.github.io/Battle-park-India/",
     displayUrl: "battlepark.in",
-    description: "Digital hub for South Delhi's premier pickleball facility. Features instant floodlit court reservations, tournament schedule fixtures, and active player community registration.",
-    highlights: [
-      "Live interactive court booking scheduler",
-      "Tournament bracket and fixture tables",
-      "Real-time WhatsApp reservation and player RSVP pipeline"
+    image: "./assets/projects/battle_park.png",
+    caption: "South Delhi premier pickleball and night sports venue platform",
+    pills: ["Sports Platform", "Court Booking", "Tournament Fixtures", "Delhi NCR"],
+    whatItDoes: "Battle Park India is the digital command center for South Delhi's premier pickleball facility. The platform handles floodlit court scheduling, tournament fixture brackets, coaching clinic reservations, and direct WhatsApp player RSVPs, transforming a physical sports venue into an automated community ecosystem.",
+    usps: [
+      {
+        metric: "6 Floodlit Courts",
+        title: "Real-Time Slot Reservations",
+        desc: "Visual court grid with immediate morning and night play slot confirmation."
+      },
+      {
+        metric: "WhatsApp API",
+        title: "One-Tap Instant RSVP",
+        desc: "Seamless booking pipeline routing reservations directly to venue concierge."
+      },
+      {
+        metric: "Live Fixtures",
+        title: "Tournament Telemetry",
+        desc: "Dynamic schedule tables and community tournament standings updated live."
+      }
     ],
-    techStack: ["HTML5", "Tailwind CSS", "JavaScript", "Responsive Design"]
+    whatWeDid: [
+      "Architected interactive court reservation calendar and slot availability grid",
+      "Created tournament fixture tables and player leaderboard systems",
+      "Integrated one-touch WhatsApp reservation pipeline with pre-populated matchplay details",
+      "Optimized mobile viewport layout for players booking court slots from the sidelines"
+    ],
+    techStack: ["HTML5", "Tailwind CSS", "JavaScript", "Responsive Design", "WhatsApp Integration"]
   },
   {
     id: "the-paddle-store",
     title: "The Paddle Store",
     category: "Pro Athletic Gear Storefront",
-    badge: "Carbon Flex",
-    theme: {
-      bg: "bg-[#E3EDF6]",
-      border: "border-[#CFDFEE]",
-      ribbon: "bg-[#14263B]",
-      ribbonText: "text-[#EBF3FA]",
-      accent: "#2563EB",
-    },
-    ribbonText: "Carbon Flex Matrix & Tournament Equipment",
-    caption: "Pro padel and pickleball athletic equipment",
-    pills: ["Carbon Weave", "Weight Matrix", "Padel Pro", "Order Drawer"],
-    image: "./assets/projects/paddle_store.png",
+    industry: "Athletic Equipment & Racket Sports",
     liveUrl: "https://arsh44n.github.io/the-paddle-store/",
     displayUrl: "thepaddlestore.com",
-    description: "Specialized equipment storefront featuring paddle carbon flex telemetry, weight-balance comparison matrix, and tournament gear specifications.",
-    highlights: [
-      "Carbon weave flex comparison telemetry",
-      "Tournament weight and balance specs matrix",
-      "Instant slide-out equipment order drawer"
+    image: "./assets/projects/paddle_store.png",
+    caption: "Specialized tournament padel and pickleball gear platform",
+    pills: ["Carbon Weave", "Weight Matrix", "Padel Pro", "Order Drawer"],
+    whatItDoes: "The Paddle Store is a high-performance equipment storefront for elite padel and pickleball athletes. Rather than generic catalog browsing, it empowers players to evaluate paddles based on carbon weave stiffness, balance point millimeters, swing-weight telemetry, and core foam density.",
+    usps: [
+      {
+        metric: "12K / 18K",
+        title: "Carbon Weave Flex Matrix",
+        desc: "Comparative stiffness analysis allowing players to match paddle flex to their swing style."
+      },
+      {
+        metric: "Gram Precision",
+        title: "Balance & Weight Analysis",
+        desc: "Interactive balance telemetry categorizing head-heavy vs control-oriented rackets."
+      },
+      {
+        metric: "Instant Drawer",
+        title: "Frictionless Gear Checkout",
+        desc: "Slide-out equipment bag drawer keeping the athlete immersed in product comparison."
+      }
     ],
-    techStack: ["Tailwind CSS", "JavaScript", "Dynamic Filter", "Cart Drawer"]
+    whatWeDid: [
+      "Constructed carbon weave stiffness telemetry comparison matrix",
+      "Built dynamic equipment filter sorting by balance point, core foam, and skill tier",
+      "Engineered slide-out bag drawer with immediate gear spec summary",
+      "Delivered crisp, high-contrast athletic imagery with technical specifications"
+    ],
+    techStack: ["Tailwind CSS", "JavaScript", "Dynamic Filter", "Cart Drawer", "Athletic Telemetry"]
   },
   {
     id: "padel-ae",
     title: "Padel AE",
     category: "UAE Venue & Club Network",
-    badge: "Dubai & UAE",
-    theme: {
-      bg: "bg-[#F3ECE4]",
-      border: "border-[#E5DDD2]",
-      ribbon: "bg-[#382015]",
-      ribbonText: "text-[#F7EFE9]",
-      accent: "#EA580C",
-    },
-    ribbonText: "Regional Indoor & Outdoor Club Network",
-    caption: "UAE and Dubai sports court discovery directory",
-    pills: ["Dubai Venues", "Abu Dhabi", "AC Courts", "Booking"],
-    image: "./assets/projects/padel_ae.png",
+    industry: "Sports Tourism & Regional Venues",
     liveUrl: "https://arsh44n.github.io/PadelAe/",
     displayUrl: "padelae.com",
-    description: "Regional sports venue discovery platform spanning Dubai and Abu Dhabi with indoor facility filters, verified club listings, and match booking links.",
-    highlights: [
-      "Dubai and Abu Dhabi verified club directory",
-      "Air-conditioned indoor court filter telemetry",
-      "Direct matchplay registration and club booking integration"
+    image: "./assets/projects/padel_ae.png",
+    caption: "UAE and Dubai sports court discovery directory",
+    pills: ["Dubai Venues", "Abu Dhabi", "AC Indoor Courts", "Geo Filter"],
+    whatItDoes: "Padel AE is the comprehensive sports venue discovery platform spanning the United Arab Emirates. It connects athletes across Dubai, Abu Dhabi, and Sharjah with verified clubs, featuring specialized filters for indoor air-conditioned courts during extreme summer months, certified coaching staffs, and direct booking links.",
+    usps: [
+      {
+        metric: "100% UAE",
+        title: "Regional Club Network",
+        desc: "Complete coverage of premier padel facilities across Dubai, Abu Dhabi, and Sharjah."
+      },
+      {
+        metric: "Climate Filter",
+        title: "Air-Conditioned Indoor Search",
+        desc: "Critical filter for UAE climate allowing players to find temperature-controlled indoor courts."
+      },
+      {
+        metric: "Direct Links",
+        title: "Verified Venue Concierge",
+        desc: "Direct WhatsApp and web booking links for every verified club in the emirates."
+      }
     ],
-    techStack: ["JavaScript", "Tailwind CSS", "Directory Engine", "Geo Filter"]
+    whatWeDid: [
+      "Built regional discovery engine with multi-emirate geo-filtering",
+      "Implemented climate-specific indoor air-conditioned facility tags and filter telemetry",
+      "Designed high-contrast responsive club showcase cards with court specifications",
+      "Streamlined player contact pathways with direct club concierge connections"
+    ],
+    techStack: ["JavaScript", "Tailwind CSS", "Directory Engine", "Geo Filter", "Responsive Layout"]
   },
   {
     id: "pickleads",
     title: "Pickleads",
     category: "SaaS Sports Venue Telemetry",
-    badge: "Automation",
-    theme: {
-      bg: "bg-[#E2F1EB]",
-      border: "border-[#CDE6DB]",
-      ribbon: "bg-[#133427]",
-      ribbonText: "text-[#E7F6F0]",
-      accent: "#10B981",
-    },
-    ribbonText: "Automated Venue Pipeline & Occupancy Telemetry",
-    caption: "Sports venue automation and booking platform",
-    pills: ["SaaS Platform", "Occupancy", "Membership", "Analytics"],
-    image: "./assets/projects/pickleads.png",
+    industry: "Enterprise SaaS & Club Automation",
     liveUrl: "https://arsh44n.github.io/pickleads/",
     displayUrl: "pickleads.com",
-    description: "Venue management and automation platform powering court booking pipelines, membership management, and club performance telemetry.",
-    highlights: [
-      "Automated member acquisition and booking pipeline",
-      "Real-time court occupancy telemetry dashboard",
-      "Membership retention and booking analytics"
+    image: "./assets/projects/pickleads.png",
+    caption: "Sports venue automation and membership telemetry platform",
+    pills: ["SaaS Platform", "Occupancy", "Membership", "Analytics"],
+    whatItDoes: "Pickleads is an enterprise software platform architected for sports venue operators and club owners. It automates player lead acquisition, manages court occupancy pipelines, streamlines recurring memberships, and provides actionable analytics on court utilization and hourly revenue yield.",
+    usps: [
+      {
+        metric: "+68% Yield",
+        title: "Court Occupancy Optimization",
+        desc: "Automated booking reminders and off-peak promotions that fill idle court hours."
+      },
+      {
+        metric: "Real-Time",
+        title: "Live Venue Telemetry",
+        desc: "Dashboard metrics tracking daily court hours booked, membership churn, and revenue."
+      },
+      {
+        metric: "Automated",
+        title: "Lead Acquisition Funnels",
+        desc: "High-conversion onboarding pipelines converting casual players into club members."
+      }
     ],
-    techStack: ["React", "TypeScript", "Tailwind CSS", "Venue Telemetry"]
+    whatWeDid: [
+      "Architected clean SaaS marketing interface with interactive telemetry dashboards",
+      "Designed conversion-engineered funnel pages targeting club managers and venue founders",
+      "Built modular metric telemetry cards showcasing revenue yield and court occupancy",
+      "Engineered responsive data tables and analytics previews with sub-second performance"
+    ],
+    techStack: ["React", "TypeScript", "Tailwind CSS", "Venue Telemetry", "Analytics Engine"]
   },
   {
     id: "metaminds-luxury",
     title: "Metaminds Cybernetic",
     category: "Luxury Agency Web Engine",
-    badge: "Cybernetic",
-    theme: {
-      bg: "bg-[#E8E8EC]",
-      border: "border-[#D6D6DC]",
-      ribbon: "bg-[#121216]",
-      ribbonText: "text-[#F0F0F5]",
-      accent: "#EB5038",
-    },
-    ribbonText: "Lenis Inertial Physics & Spotlight Illumination",
-    caption: "Cybernetic luxury web design engine",
-    pills: ["Lenis Scroll", "GSAP Trigger", "Spotlight Mask", "Luxury UX"],
-    image: "./assets/projects/metaminds.png",
+    industry: "Creative Technology & Digital Studios",
     liveUrl: "https://metaminds.studio",
     displayUrl: "metaminds.studio",
-    description: "Agency web engine designed with smooth inertial scrolling, cursor proximity illumination, dynamic radial spotlights, and interactive modal capture.",
-    highlights: [
-      "Dynamic cursor proximity illumination & radial spotlights",
-      "120fps smooth inertial scrolling physics",
-      "Glowing gradient-mask cards and interactive capture"
+    image: "./assets/projects/metaminds.png",
+    caption: "Cybernetic luxury web design engine for elite digital agencies",
+    pills: ["Lenis Scroll", "GSAP Trigger", "Spotlight Mask", "Luxury UX"],
+    whatItDoes: "Metaminds Cybernetic is an ultra-premium web engine designed for avant-garde AI agencies and creative technology studios. Architected around Lenis smooth inertial physics, magnetic cursor spotlights, glowing gradient-mask cards, and SplitType kinetic typography, it redefines the benchmark for cybernetic luxury.",
+    usps: [
+      {
+        metric: "120 FPS",
+        title: "Lenis Inertial Physics",
+        desc: "Silky smooth scroll physics completely eliminating desktop and trackpad scroll stutter."
+      },
+      {
+        metric: "Dynamic",
+        title: "Cursor Proximity Illumination",
+        desc: "Radial lighting masks that follow the pointer, revealing subtle micro-textures."
+      },
+      {
+        metric: "Sub-Second",
+        title: "Zero-Latency Performance",
+        desc: "99/100 Lighthouse performance despite complex multi-layer WebGL and GSAP animations."
+      }
     ],
-    techStack: ["React", "GSAP ScrollTrigger", "Lenis Scroll", "Tailwind CSS"]
+    whatWeDid: [
+      "Integrated Lenis inertial smooth scroll physics with GSAP ScrollTrigger timeline orchestration",
+      "Built dynamic cursor-tracking radial spotlights and glowing gradient-mask card components",
+      "Engineered responsive glassmorphic pill navigation with fluid backdrop blur",
+      "Achieved cinematic dark luxury aesthetic with zero performance compromises"
+    ],
+    techStack: ["React", "GSAP ScrollTrigger", "Lenis Scroll", "Tailwind CSS", "Kinetic Physics"]
   },
   {
     id: "aurix-one-acoustics",
     title: "Aurix One Acoustics",
     category: "Audiophile Hardware Showcase",
-    badge: "WebGL 3D",
-    theme: {
-      bg: "bg-[#EFE5E6]",
-      border: "border-[#DDD0D2]",
-      ribbon: "bg-[#291013]",
-      ribbonText: "text-[#F8ECEE]",
-      accent: "#E51429",
-    },
-    ribbonText: "Graphene Acoustic Disassembly & Frequency Wave",
-    caption: "Audiophile graphene acoustic hardware showcase",
-    pills: ["WebGL 3D", "Three.js", "Noise Cancelling", "Frequency"],
-    image: "./assets/projects/aurix_one.png",
+    industry: "Consumer Electronics & Acoustics",
     liveUrl: "https://aurix-acoustics.live",
     displayUrl: "aurix-acoustics.live",
-    description: "Hardware flagship showcase featuring 3D chassis scroll disassembly, active noise cancellation frequency wave simulations, and exploded acoustic view.",
-    highlights: [
-      "Interactive 3D chassis exploded disassembly view",
-      "Active noise cancellation frequency simulation",
-      "Precision aero aluminum enclosure showcase"
+    image: "./assets/projects/aurix_one.png",
+    caption: "Audiophile graphene acoustic hardware flagship showcase",
+    pills: ["WebGL 3D", "Three.js", "Noise Cancelling", "Frequency"],
+    whatItDoes: "Aurix One Acoustics is a flagship product showcase for precision graphene audio hardware. It features interactive 3D scroll-driven chassis disassembly, real-time active noise cancellation frequency wave simulations, and an exploded view highlighting CNC-machined aerospace aluminum enclosures.",
+    usps: [
+      {
+        metric: "3D Exploded",
+        title: "Chassis Scroll Disassembly",
+        desc: "Scroll-linked exploded view separating drivers, graphene diaphragm, and acoustic housing."
+      },
+      {
+        metric: "Real-Time",
+        title: "ANC Frequency Wave Simulation",
+        desc: "Interactive canvas waveform simulating ambient phase-inverted noise cancellation."
+      },
+      {
+        metric: "Aerospace",
+        title: "CNC Aluminum Enclosure",
+        desc: "Precision industrial design presentation highlighting acoustic chamber geometry."
+      }
     ],
-    techStack: ["WebGL", "Three.js", "Canvas Scrubber", "Framer Motion"]
+    whatWeDid: [
+      "Built scroll-synchronized 3D exploded chassis view using Three.js and Canvas rendering",
+      "Engineered real-time audio frequency wave simulator with interactive noise-cancellation toggle",
+      "Created sleek Swiss technical spec sheets detailing driver impedance and frequency response",
+      "Optimized 3D asset pipeline ensuring fluid 60fps rendering across mobile and desktop devices"
+    ],
+    techStack: ["WebGL", "Three.js", "Canvas Scrubber", "Framer Motion", "Audio Telemetry"]
   }
 ];

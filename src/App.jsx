@@ -21,8 +21,8 @@ export default function App() {
   }, []);
 
   return (
-    <main className="relative w-screen h-screen overflow-hidden flex flex-col justify-between bg-[#EAEAEA] text-[#111111] select-none">
-      {/* 3D White Architectural Studio Canvas */}
+    <main className="relative w-screen h-screen overflow-hidden flex flex-col justify-between bg-white text-[#111111] select-none">
+      {/* 3D Celestial White Interactive Nebula Canvas */}
       <Background3D />
 
       {/* Top Header */}
@@ -34,11 +34,11 @@ export default function App() {
         onSelectProject={(project) => setSelectedProject(project)}
       />
 
-      {/* Bottom Minimal Studio Bar */}
-      <footer className="relative z-20 w-full px-6 sm:px-12 py-3 border-t border-black/[0.06] flex items-center justify-between font-mono text-[9px] sm:text-[10px] text-black/40 uppercase tracking-widest shrink-0">
+      {/* Bottom Minimal Studio Bar (No dividing border, unified depth) */}
+      <footer className="relative z-20 w-full px-8 sm:px-14 py-3 flex items-center justify-between font-mono text-[9px] sm:text-[10px] text-black/35 uppercase tracking-widest shrink-0">
         <div className="flex items-center gap-2">
           <span>+</span>
-          <span>ARSHAAN // ARCHIVE</span>
+          <span>ARSHAAN // SELECTED WORKS</span>
         </div>
         <div className="flex items-center gap-2">
           <span>EST. 2026</span>
