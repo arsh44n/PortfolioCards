@@ -1,0 +1,29 @@
+# Dependencies
+node_modules
+.pnp
+.pnp.js
+
+# Testing
+coverage
+
+# Production (keep docs/ and dist/ tracked so GitHub Pages serves them without build requirement)
+# dist/ is tracked for GitHub Pages
+
+# Misc
+.DS_Store
+*.pem
+
+# Local env files
+.env*.local
+
+# Vercel / Netlify
+.vercel
+
+# IDE / Editor
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
