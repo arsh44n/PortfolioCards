@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import { ArrowUpRight, Sparkles } from 'lucide-react';
 
 export default function ProjectCard({ project, onSelect }) {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [isHovered, setIsHovered] = useState(false);
+  const [hoveredPill, setHoveredPill] = useState(null);
 
   const handleMouseMove = (e) => {
     const rect = e.currentTarget.getBoundingClientRect();
@@ -28,7 +30,7 @@ export default function ProjectCard({ project, onSelect }) {
           : 'perspective(1000px) rotateY(0deg) rotateX(0deg) translateY(0px)',
         transition: isHovered ? 'transform 0.15s ease-out' : 'transform 0.5s ease-out',
       }}
-      className="group relative w-[310px] sm:w-[350px] md:w-[370px] shrink-0 bg-white/90 backdrop-blur-2xl rounded-[32px] overflow-hidden shadow-[0_20px_50px_-12px_rgba(0,0,0,0.07),0_1px_3px_rgba(0,0,0,0.02)] hover:shadow-[0_35px_80px_-15px_rgba(0,0,0,0.13),0_2px_6px_rgba(0,0,0,0.03)] cursor-pointer select-none flex flex-col justify-between"
+      className="group relative w-[310px] sm:w-[350px] md:w-[370px] shrink-0 bg-white/95 backdrop-blur-2xl rounded-[32px] overflow-hidden shadow-[0_20px_50px_-12px_rgba(0,0,0,0.07),0_1px_3px_rgba(0,0,0,0.02)] hover:shadow-[0_35px_80px_-15px_rgba(0,0,0,0.14),0_2px_6px_rgba(0,0,0,0.04)] cursor-pointer select-none flex flex-col justify-between border border-white/80"
     >
       {/* ===================================================================
           1. VISUAL FILLS THE CARD (Edge-to-Edge with Smooth Perspective)
@@ -42,28 +44,47 @@ export default function ProjectCard({ project, onSelect }) {
         />
 
         {/* Subtle glassmorphic sheen overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-white/10 pointer-events-none opacity-80 group-hover:opacity-60 transition-opacity" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-white/10 pointer-events-none opacity-80 group-hover:opacity-50 transition-opacity" />
+
+        {/* Interactive Hover Inspect Pill */}
+        <div className="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-white/85 backdrop-blur-md shadow-xs opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-1 group-hover:translate-y-0 flex items-center gap-1 font-mono text-[9px] font-bold text-black/80">
+          <span>INSPECT</span>
+          <ArrowUpRight className="w-3 h-3 text-black/60" />
+        </div>
       </div>
 
       {/* ===================================================================
-          2. BOTTOM TITLE & CATEGORY (Zero Extra Text, No Explore Button)
+          2. BOTTOM TITLE & CATEGORY (Interactive Text & Animation Effects)
           =================================================================== */}
       <div className="p-5 sm:p-6 flex flex-col gap-2.5 bg-white">
         <div>
-          <span className="font-mono text-[10px] sm:text-[11px] font-semibold text-black/45 tracking-wider uppercase">
-            {project.category}
-          </span>
-          <h3 className="font-sans font-extrabold text-lg sm:text-xl text-[#111111] tracking-tight group-hover:text-black transition-colors mt-0.5 truncate">
-            {project.title}
+          <div className="flex items-center gap-1.5">
+            <span className="w-1.5 h-1.5 rounded-full bg-black/40 group-hover:bg-emerald-500 transition-colors" />
+            <span className="font-mono text-[10px] sm:text-[11px] font-semibold text-black/45 group-hover:text-black/80 tracking-wider uppercase transition-colors">
+              {project.category}
+            </span>
+          </div>
+
+          <h3 className="font-sans font-extrabold text-lg sm:text-xl text-[#111111] tracking-tight group-hover:text-black transition-all duration-200 mt-1 truncate group-hover:translate-x-0.5">
+            <span className="relative inline-block">
+              {project.title}
+              <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-black group-hover:w-full transition-all duration-300" />
+            </span>
           </h3>
         </div>
 
-        {/* Soft Rounded Pill Tags */}
+        {/* Soft Rounded Interactive Pill Tags */}
         <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar pt-1">
           {project.pills.map((pill, idx) => (
             <span
               key={idx}
-              className="px-2.5 py-1 rounded-full bg-[#F3F4F6] text-black/70 font-sans text-[10px] sm:text-[11px] font-medium tracking-tight shrink-0 group-hover:bg-[#EBECEF] transition-colors"
+              onMouseEnter={() => setHoveredPill(idx)}
+              onMouseLeave={() => setHoveredPill(null)}
+              className={`px-2.5 py-1 rounded-full font-sans text-[10px] sm:text-[11px] font-medium tracking-tight shrink-0 transition-all duration-200 ${
+                hoveredPill === idx
+                  ? 'bg-[#111111] text-white scale-105 shadow-2xs'
+                  : 'bg-[#F3F4F6] text-black/70 group-hover:bg-[#EBECEF]'
+              }`}
             >
               {pill}
             </span>

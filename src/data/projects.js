@@ -2,6 +2,12 @@ export const creatorProfile = {
   name: "ARSHAAN",
   title: "Creative Technologist & Frontend Architect",
   location: "New Delhi / Global Remote",
+  email: "arshaankhan.work@gmail.com",
+  phone: "+91 98710 00000",
+  whatsapp: "+91 98710 00000",
+  whatsappUrl: "https://wa.me/919871000000",
+  linkedin: "https://www.linkedin.com/in/arshaan-khan",
+  linkedinDisplay: "linkedin.com/in/arshaan",
   bio: "Architecting high-conversion digital flagships, 3D interactive systems, and sub-second web platforms. Combining tactile graphic design, kinetic motion physics, and conversion velocity.",
   stats: [
     { label: "PUBLISHED PROJECTS", value: "07" },

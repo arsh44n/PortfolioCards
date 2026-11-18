@@ -79,7 +79,7 @@ export default function CardScrollTrack({ projects, onSelectProject }) {
       <div
         ref={trackRef}
         onWheel={handleWheel}
-        className="w-full flex items-center gap-6 sm:gap-8 md:gap-10 px-8 sm:px-14 md:px-20 overflow-x-auto no-scrollbar scroll-smooth py-8 select-none"
+        className="w-full flex items-center gap-6 sm:gap-8 md:gap-10 px-8 sm:px-14 md:px-20 overflow-x-auto no-scrollbar scroll-smooth py-3 sm:py-5 select-none"
         style={{ scrollSnapType: 'x proximity' }}
       >
         {projects.map((project) => (
