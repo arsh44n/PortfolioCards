@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "cp index.source.html index.html && vite",
-    "build": "cp index.source.html index.html && vite build && cp docs/index.html docs/404.html && cp docs/index.html index.html && cp docs/404.html 404.html && cp -r docs/assets . && touch .nojekyll && touch docs/.nojekyll",
+    "build": "cp index.source.html index.html && vite build && cp docs/index.html docs/404.html && cp docs/index.html index.html && cp docs/404.html 404.html && cp -r docs/assets . && cp -r public/metaminds docs/ 2>/dev/null && cp -r public/metaminds . 2>/dev/null && touch .nojekyll && touch docs/.nojekyll",
     "preview": "vite preview"
   },
   "dependencies": {

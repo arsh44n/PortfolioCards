@@ -16,6 +16,7 @@ import {
   Eye,
   Check
 } from 'lucide-react';
+import WordByWordText from './WordByWordText';
 
 export default function ProjectModal({ project, onClose }) {
   const [iframeLoaded, setIframeLoaded] = useState(false);
@@ -98,9 +99,11 @@ export default function ProjectModal({ project, onClose }) {
             </div>
 
             <h2 className="group font-sans text-2xl sm:text-3xl md:text-4xl font-black text-[#111111] tracking-tight mt-1 transition-all duration-300 cursor-default">
-              <span className="animate-shimmer-text hover:brightness-125 transition-all">
-                {project.title}
-              </span>
+              <WordByWordText
+                text={project.title}
+                wordClassName="animate-shimmer-text hover:brightness-125 transition-all"
+                stagger={0.07}
+              />
             </h2>
           </div>
 
@@ -214,7 +217,7 @@ export default function ProjectModal({ project, onClose }) {
                 >
                   <iframe
                     key={iframeKey}
-                    src={project.liveUrl}
+                    src={project.previewUrl || project.liveUrl}
                     title={project.title}
                     style={{ width: `${desktopWidth}px`, height: `${desktopHeight}px` }}
                     className="border-0 bg-white"
@@ -358,9 +361,11 @@ export default function ProjectModal({ project, onClose }) {
                   What this platform achieves
                 </span>
               </h4>
-              <p className="font-sans text-xs sm:text-[13px] text-black/80 leading-relaxed font-normal hover:text-black transition-colors">
-                {project.whatItDoes}
-              </p>
+              <WordByWordText
+                text={project.whatItDoes}
+                wordClassName="font-sans text-xs sm:text-[13px] text-black/80 leading-relaxed font-normal hover:text-black transition-colors"
+                stagger={0.03}
+              />
             </div>
 
             {/* CARD 4: KEY USPS & WHY IT STANDS OUT (Deeply Interactive) */}

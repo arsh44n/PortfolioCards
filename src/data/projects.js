@@ -10,10 +10,11 @@ export const creatorProfile = {
   linkedinDisplay: "linkedin.com/in/arsh44n",
   avatar: "./assets/arshaan_profile_sq.png",
   avatarFull: "./assets/arshaan_profile.png",
+  avatar3D: "./assets/arshaan_3d_avatar.png",
   pitchText: `Hey,\nAre you looking for a high-end premium website for your business with immersive experience?\nLet's connect.`,
   bio: "Architecting high-conversion digital flagships, 3D interactive systems, and sub-second web platforms. Combining tactile graphic design, kinetic motion physics, and conversion velocity.",
   stats: [
-    { label: "PUBLISHED PROJECTS", value: "07" },
+    { label: "PUBLISHED PROJECTS", value: "14+" },
     { label: "FRAME RATE TARGET", value: "120 FPS" },
     { label: "CLIENT REACH", value: "GLOBAL" },
     { label: "COMMISSIONS", value: "OPEN" },
@@ -35,6 +36,7 @@ export const projects = [
     category: "Luxury Fragrance E-Commerce",
     industry: "Haute Perfumerie & Luxury Retail",
     liveUrl: "https://arsh44n.github.io/Indian-Celebritie/love-drop.html",
+    previewUrl: "https://arsh44n.github.io/Indian-Celebritie/love-drop.html",
     displayUrl: "indian-celebritie.store",
     image: "./assets/projects/indian_celebritie.png",
     caption: "High-conversion luxury perfume storefront with scent accord telemetry",
@@ -66,83 +68,12 @@ export const projects = [
     techStack: ["Tailwind CSS", "Interactive Lightbox", "Cart Drawer", "Motion Physics", "JavaScript"]
   },
   {
-    id: "battle-park-india",
-    title: "Battle Park India",
-    category: "Sports Club & Venue Platform",
-    industry: "Sports Facilities & Community Networks",
-    liveUrl: "https://arsh44n.github.io/Battle-park-India/",
-    displayUrl: "battlepark.in",
-    image: "./assets/projects/battle_park.png",
-    caption: "South Delhi premier pickleball and night sports venue platform",
-    pills: ["Sports Platform", "Court Booking", "Tournament Fixtures", "Delhi NCR"],
-    whatItDoes: "Battle Park India is the digital command center for South Delhi's premier pickleball facility. The platform handles floodlit court scheduling, tournament fixture brackets, coaching clinic reservations, and direct WhatsApp player RSVPs, transforming a physical sports venue into an automated community ecosystem.",
-    usps: [
-      {
-        metric: "6 Floodlit Courts",
-        title: "Real-Time Slot Reservations",
-        desc: "Visual court grid with immediate morning and night play slot confirmation."
-      },
-      {
-        metric: "WhatsApp API",
-        title: "One-Tap Instant RSVP",
-        desc: "Seamless booking pipeline routing reservations directly to venue concierge."
-      },
-      {
-        metric: "Live Fixtures",
-        title: "Tournament Telemetry",
-        desc: "Dynamic schedule tables and community tournament standings updated live."
-      }
-    ],
-    whatWeDid: [
-      "Architected interactive court reservation calendar and slot availability grid",
-      "Created tournament fixture tables and player leaderboard systems",
-      "Integrated one-touch WhatsApp reservation pipeline with pre-populated matchplay details",
-      "Optimized mobile viewport layout for players booking court slots from the sidelines"
-    ],
-    techStack: ["HTML5", "Tailwind CSS", "JavaScript", "Responsive Design", "WhatsApp Integration"]
-  },
-  {
-    id: "the-paddle-store",
-    title: "The Paddle Store",
-    category: "Pro Athletic Gear Storefront",
-    industry: "Athletic Equipment & Racket Sports",
-    liveUrl: "https://arsh44n.github.io/the-paddle-store/",
-    displayUrl: "thepaddlestore.com",
-    image: "./assets/projects/paddle_store.png",
-    caption: "Specialized tournament padel and pickleball gear platform",
-    pills: ["Carbon Weave", "Weight Matrix", "Padel Pro", "Order Drawer"],
-    whatItDoes: "The Paddle Store is a high-performance equipment storefront for elite padel and pickleball athletes. Rather than generic catalog browsing, it empowers players to evaluate paddles based on carbon weave stiffness, balance point millimeters, swing-weight telemetry, and core foam density.",
-    usps: [
-      {
-        metric: "12K / 18K",
-        title: "Carbon Weave Flex Matrix",
-        desc: "Comparative stiffness analysis allowing players to match paddle flex to their swing style."
-      },
-      {
-        metric: "Gram Precision",
-        title: "Balance & Weight Analysis",
-        desc: "Interactive balance telemetry categorizing head-heavy vs control-oriented rackets."
-      },
-      {
-        metric: "Instant Drawer",
-        title: "Frictionless Gear Checkout",
-        desc: "Slide-out equipment bag drawer keeping the athlete immersed in product comparison."
-      }
-    ],
-    whatWeDid: [
-      "Constructed carbon weave stiffness telemetry comparison matrix",
-      "Built dynamic equipment filter sorting by balance point, core foam, and skill tier",
-      "Engineered slide-out bag drawer with immediate gear spec summary",
-      "Delivered crisp, high-contrast athletic imagery with technical specifications"
-    ],
-    techStack: ["Tailwind CSS", "JavaScript", "Dynamic Filter", "Cart Drawer", "Athletic Telemetry"]
-  },
-  {
     id: "padel-ae",
     title: "Padel AE",
     category: "UAE Venue & Club Network",
     industry: "Sports Tourism & Regional Venues",
     liveUrl: "https://arsh44n.github.io/PadelAe/",
+    previewUrl: "https://arsh44n.github.io/PadelAe/",
     displayUrl: "padelae.com",
     image: "./assets/projects/padel_ae.png",
     caption: "UAE and Dubai sports court discovery directory",
@@ -179,6 +110,7 @@ export const projects = [
     category: "SaaS Sports Venue Telemetry",
     industry: "Enterprise SaaS & Club Automation",
     liveUrl: "https://arsh44n.github.io/pickleads/",
+    previewUrl: "https://arsh44n.github.io/pickleads/",
     displayUrl: "pickleads.com",
     image: "./assets/projects/pickleads.png",
     caption: "Sports venue automation and membership telemetry platform",
@@ -210,16 +142,91 @@ export const projects = [
     techStack: ["React", "TypeScript", "Tailwind CSS", "Venue Telemetry", "Analytics Engine"]
   },
   {
+    id: "the-paddle-store",
+    title: "The Paddle Store",
+    category: "Pro Athletic Gear Storefront",
+    industry: "Athletic Equipment & Racket Sports",
+    liveUrl: "https://arsh44n.github.io/the-paddle-store/",
+    previewUrl: "https://arsh44n.github.io/the-paddle-store/",
+    displayUrl: "thepaddlestore.com",
+    image: "./assets/projects/paddle_store.png",
+    caption: "Specialized tournament padel and pickleball gear platform",
+    pills: ["Carbon Weave", "Weight Matrix", "Padel Pro", "Order Drawer"],
+    whatItDoes: "The Paddle Store is a high-performance equipment storefront for elite padel and pickleball athletes. Rather than generic catalog browsing, it empowers players to evaluate paddles based on carbon weave stiffness, balance point millimeters, swing-weight telemetry, and core foam density.",
+    usps: [
+      {
+        metric: "12K / 18K",
+        title: "Carbon Weave Flex Matrix",
+        desc: "Comparative stiffness analysis allowing players to match paddle flex to their swing style."
+      },
+      {
+        metric: "Gram Precision",
+        title: "Balance & Weight Analysis",
+        desc: "Interactive balance telemetry categorizing head-heavy vs control-oriented rackets."
+      },
+      {
+        metric: "Instant Drawer",
+        title: "Frictionless Gear Checkout",
+        desc: "Slide-out equipment bag drawer keeping the athlete immersed in product comparison."
+      }
+    ],
+    whatWeDid: [
+      "Constructed carbon weave stiffness telemetry comparison matrix",
+      "Built dynamic equipment filter sorting by balance point, core foam, and skill tier",
+      "Engineered slide-out bag drawer with immediate gear spec summary",
+      "Delivered crisp, high-contrast athletic imagery with technical specifications"
+    ],
+    techStack: ["Tailwind CSS", "JavaScript", "Dynamic Filter", "Cart Drawer", "Athletic Telemetry"]
+  },
+  {
+    id: "battle-park-india",
+    title: "Battle Park India",
+    category: "Sports Club & Venue Platform",
+    industry: "Sports Facilities & Community Networks",
+    liveUrl: "https://arsh44n.github.io/Battle-park-India/",
+    previewUrl: "https://arsh44n.github.io/Battle-park-India/",
+    displayUrl: "battlepark.in",
+    image: "./assets/projects/battle_park.png",
+    caption: "South Delhi premier pickleball and night sports venue platform",
+    pills: ["Sports Platform", "Court Booking", "Tournament Fixtures", "Delhi NCR"],
+    whatItDoes: "Battle Park India is the digital command center for South Delhi's premier pickleball facility. The platform handles floodlit court scheduling, tournament fixture brackets, coaching clinic reservations, and direct WhatsApp player RSVPs, transforming a physical sports venue into an automated community ecosystem.",
+    usps: [
+      {
+        metric: "6 Floodlit Courts",
+        title: "Real-Time Slot Reservations",
+        desc: "Visual court grid with immediate morning and night play slot confirmation."
+      },
+      {
+        metric: "WhatsApp API",
+        title: "One-Tap Instant RSVP",
+        desc: "Seamless booking pipeline routing reservations directly to venue concierge."
+      },
+      {
+        metric: "Live Fixtures",
+        title: "Tournament Telemetry",
+        desc: "Dynamic schedule tables and community tournament standings updated live."
+      }
+    ],
+    whatWeDid: [
+      "Architected interactive court reservation calendar and slot availability grid",
+      "Created tournament fixture tables and player leaderboard systems",
+      "Integrated one-touch WhatsApp reservation pipeline with pre-populated matchplay details",
+      "Optimized mobile viewport layout for players booking court slots from the sidelines"
+    ],
+    techStack: ["HTML5", "Tailwind CSS", "JavaScript", "Responsive Design", "WhatsApp Integration"]
+  },
+  {
     id: "metaminds-luxury",
-    title: "Metaminds Cybernetic",
+    title: "Meta mind cyber netics",
     category: "Luxury Agency Web Engine",
     industry: "Creative Technology & Digital Studios",
+    previewUrl: "./metaminds/index.html",
     liveUrl: "https://metaminds.studio",
     displayUrl: "metaminds.studio",
     image: "./assets/projects/metaminds.png",
     caption: "Cybernetic luxury web design engine for elite digital agencies",
     pills: ["Lenis Scroll", "GSAP Trigger", "Spotlight Mask", "Luxury UX"],
-    whatItDoes: "Metaminds Cybernetic is an ultra-premium web engine designed for avant-garde AI agencies and creative technology studios. Architected around Lenis smooth inertial physics, magnetic cursor spotlights, glowing gradient-mask cards, and SplitType kinetic typography, it redefines the benchmark for cybernetic luxury.",
+    whatItDoes: "Meta mind cyber netics is an ultra-premium web engine designed for avant-garde AI agencies and creative technology studios. Architected around Lenis smooth inertial physics, magnetic cursor spotlights, glowing gradient-mask cards, and SplitType kinetic typography, it redefines the benchmark for cybernetic luxury.",
     usps: [
       {
         metric: "120 FPS",
@@ -244,41 +251,5 @@ export const projects = [
       "Achieved cinematic dark luxury aesthetic with zero performance compromises"
     ],
     techStack: ["React", "GSAP ScrollTrigger", "Lenis Scroll", "Tailwind CSS", "Kinetic Physics"]
-  },
-  {
-    id: "aurix-one-acoustics",
-    title: "Aurix One Acoustics",
-    category: "Audiophile Hardware Showcase",
-    industry: "Consumer Electronics & Acoustics",
-    liveUrl: "https://aurix-acoustics.live",
-    displayUrl: "aurix-acoustics.live",
-    image: "./assets/projects/aurix_one.png",
-    caption: "Audiophile graphene acoustic hardware flagship showcase",
-    pills: ["WebGL 3D", "Three.js", "Noise Cancelling", "Frequency"],
-    whatItDoes: "Aurix One Acoustics is a flagship product showcase for precision graphene audio hardware. It features interactive 3D scroll-driven chassis disassembly, real-time active noise cancellation frequency wave simulations, and an exploded view highlighting CNC-machined aerospace aluminum enclosures.",
-    usps: [
-      {
-        metric: "3D Exploded",
-        title: "Chassis Scroll Disassembly",
-        desc: "Scroll-linked exploded view separating drivers, graphene diaphragm, and acoustic housing."
-      },
-      {
-        metric: "Real-Time",
-        title: "ANC Frequency Wave Simulation",
-        desc: "Interactive canvas waveform simulating ambient phase-inverted noise cancellation."
-      },
-      {
-        metric: "Aerospace",
-        title: "CNC Aluminum Enclosure",
-        desc: "Precision industrial design presentation highlighting acoustic chamber geometry."
-      }
-    ],
-    whatWeDid: [
-      "Built scroll-synchronized 3D exploded chassis view using Three.js and Canvas rendering",
-      "Engineered real-time audio frequency wave simulator with interactive noise-cancellation toggle",
-      "Created sleek Swiss technical spec sheets detailing driver impedance and frequency response",
-      "Optimized 3D asset pipeline ensuring fluid 60fps rendering across mobile and desktop devices"
-    ],
-    techStack: ["WebGL", "Three.js", "Canvas Scrubber", "Framer Motion", "Audio Telemetry"]
   }
 ];

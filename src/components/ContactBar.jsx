@@ -7,7 +7,7 @@ export default function ContactBar() {
     name: '',
     whatsapp: '',
     service: 'Premium Website',
-    budget: '$3,000 – $5,000',
+    budget: 'Less than $1,000',
     additionalInfo: '',
   });
 
@@ -28,6 +28,7 @@ export default function ContactBar() {
   ];
 
   const budgets = [
+    'Less than $1,000',
     '$1,000 – $3,000',
     '$3,000 – $5,000',
     '$5,000 – $10,000',
@@ -214,7 +215,7 @@ export default function ContactBar() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="flex-1 lg:flex-none flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-[#111111] hover:bg-black text-white font-sans text-xs font-bold tracking-tight shadow-md hover:shadow-lg transition-all hover:-translate-y-0.5 active:translate-y-0 cursor-pointer disabled:opacity-75"
+                className="flex-1 lg:flex-none flex items-center justify-center gap-2 px-6 py-2.5 rounded-xl bg-[#111111] hover:bg-black text-white font-sans text-xs font-bold tracking-tight shadow-md hover:shadow-lg transition-all hover:-translate-y-0.5 active:translate-y-0 cursor-pointer disabled:opacity-75"
               >
                 {isSubmitting ? (
                   <>
@@ -223,7 +224,7 @@ export default function ContactBar() {
                   </>
                 ) : (
                   <>
-                    <span>Submit via Email</span>
+                    <span>Submit</span>
                     <Send className="w-3.5 h-3.5" />
                   </>
                 )}

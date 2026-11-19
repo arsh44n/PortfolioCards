@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ArrowUpRight, Sparkles } from 'lucide-react';
+import WordByWordText from './WordByWordText';
 
 export default function ProjectCard({ project, onSelect }) {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
@@ -8,8 +9,8 @@ export default function ProjectCard({ project, onSelect }) {
 
   const handleMouseMove = (e) => {
     const rect = e.currentTarget.getBoundingClientRect();
-    const x = ((e.clientX - rect.left) / rect.width - 0.5) * 16;
-    const y = ((e.clientY - rect.top) / rect.height - 0.5) * 16;
+    const x = ((e.clientX - rect.left) / rect.width - 0.5) * 14;
+    const y = ((e.clientY - rect.top) / rect.height - 0.5) * 14;
     setMousePos({ x, y });
   };
 
@@ -44,32 +45,35 @@ export default function ProjectCard({ project, onSelect }) {
         />
 
         {/* Subtle glassmorphic sheen overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-white/10 pointer-events-none opacity-80 group-hover:opacity-50 transition-opacity" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-white/10 pointer-events-none opacity-80 group-hover:opacity-40 transition-opacity" />
 
         {/* Interactive Hover Inspect Pill */}
-        <div className="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-white/85 backdrop-blur-md shadow-xs opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-1 group-hover:translate-y-0 flex items-center gap-1 font-mono text-[9px] font-bold text-black/80">
+        <div className="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-white/90 backdrop-blur-md shadow-xs opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-1 group-hover:translate-y-0 flex items-center gap-1 font-mono text-[9px] font-bold text-black/80">
           <span>INSPECT</span>
           <ArrowUpRight className="w-3 h-3 text-black/60" />
         </div>
       </div>
 
       {/* ===================================================================
-          2. BOTTOM TITLE & CATEGORY (Interactive Text & Animation Effects)
+          2. BOTTOM TITLE & CATEGORY (Word-by-Word Kinetic Interactive Text)
           =================================================================== */}
       <div className="p-5 sm:p-6 flex flex-col gap-2.5 bg-white">
         <div>
           <div className="flex items-center gap-1.5">
             <span className="w-1.5 h-1.5 rounded-full bg-black/40 group-hover:bg-emerald-500 transition-colors" />
-            <span className="font-mono text-[10px] sm:text-[11px] font-semibold text-black/45 group-hover:text-black/80 tracking-wider uppercase transition-colors">
-              {project.category}
-            </span>
+            <WordByWordText
+              text={project.category}
+              wordClassName="font-mono text-[10px] sm:text-[11px] font-semibold text-black/50 group-hover:text-black/80 tracking-wider uppercase transition-colors"
+              stagger={0.04}
+            />
           </div>
 
           <h3 className="font-sans font-extrabold text-lg sm:text-xl text-[#111111] tracking-tight group-hover:text-black transition-all duration-200 mt-1 truncate group-hover:translate-x-0.5">
-            <span className="relative inline-block">
-              {project.title}
-              <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-black group-hover:w-full transition-all duration-300" />
-            </span>
+            <WordByWordText
+              text={project.title}
+              wordClassName="font-sans font-black text-lg sm:text-xl text-[#111111] tracking-tight hover:text-black transition-colors"
+              stagger={0.06}
+            />
           </h3>
         </div>
 

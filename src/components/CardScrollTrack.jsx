@@ -6,6 +6,10 @@ export default function CardScrollTrack({ projects, onSelectProject }) {
   const trackRef = useRef(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeftState, setScrollLeftState] = useState(0);
+  const [hasDragged, setHasDragged] = useState(false);
 
   // Update scroll boundaries
   const updateScrollState = useCallback(() => {
@@ -37,12 +41,35 @@ export default function CardScrollTrack({ projects, onSelectProject }) {
     });
   };
 
-  // Wheel horizontal scrolling
+  // Wheel horizontal scrolling with smooth acceleration
   const handleWheel = (e) => {
     if (!trackRef.current) return;
     if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
-      trackRef.current.scrollLeft += e.deltaY * 0.9;
+      trackRef.current.scrollLeft += e.deltaY * 0.95;
     }
+  };
+
+  // Ultra-smooth Mouse Drag Scrolling for Desktop
+  const handleMouseDown = (e) => {
+    if (!trackRef.current) return;
+    setIsDragging(true);
+    setHasDragged(false);
+    setStartX(e.pageX - trackRef.current.offsetLeft);
+    setScrollLeftState(trackRef.current.scrollLeft);
+  };
+
+  const handleMouseMove = (e) => {
+    if (!isDragging || !trackRef.current) return;
+    const x = e.pageX - trackRef.current.offsetLeft;
+    const walk = (x - startX) * 1.35;
+    if (Math.abs(walk) > 4) {
+      setHasDragged(true);
+    }
+    trackRef.current.scrollLeft = scrollLeftState - walk;
+  };
+
+  const handleMouseUp = () => {
+    setIsDragging(false);
   };
 
   return (
@@ -75,13 +102,18 @@ export default function CardScrollTrack({ projects, onSelectProject }) {
         <ChevronRight className="w-5 h-5 text-black" />
       </button>
 
-      {/* HORIZONTAL CARDS TRACK: Free-momentum touch sensitive scrolling (No rigid snap) */}
+      {/* HORIZONTAL CARDS TRACK: Free-momentum touch sensitive + smooth drag */}
       <div
         ref={trackRef}
         onWheel={handleWheel}
+        onMouseDown={handleMouseDown}
+        onMouseMove={handleMouseMove}
+        onMouseUp={handleMouseUp}
+        onMouseLeave={handleMouseUp}
         style={{
           WebkitOverflowScrolling: 'touch',
           overscrollBehaviorX: 'contain',
+          cursor: isDragging ? 'grabbing' : 'default',
         }}
         className="w-full max-w-full min-w-0 flex items-center gap-4 sm:gap-7 md:gap-9 px-4 sm:px-12 md:px-20 overflow-x-auto no-scrollbar py-3 sm:py-5 select-none"
       >
@@ -89,7 +121,12 @@ export default function CardScrollTrack({ projects, onSelectProject }) {
           <div key={project.id} className="shrink-0">
             <ProjectCard
               project={project}
-              onSelect={onSelectProject}
+              onSelect={(p) => {
+                // If user was dragging across, don't trigger modal click
+                if (!hasDragged) {
+                  onSelectProject(p);
+                }
+              }}
             />
           </div>
         ))}
