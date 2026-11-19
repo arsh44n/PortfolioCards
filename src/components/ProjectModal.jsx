@@ -66,7 +66,7 @@ export default function ProjectModal({ project, onClose }) {
             </div>
 
             <h2 className="group font-sans text-2xl sm:text-3xl md:text-4xl font-black text-[#111111] tracking-tight mt-1 transition-all duration-300 hover:tracking-normal cursor-default">
-              <span className="bg-gradient-to-r from-black via-black/90 to-black/70 bg-clip-text">
+              <span className="animate-shimmer-text">
                 {project.title}
               </span>
             </h2>
@@ -267,17 +267,17 @@ export default function ProjectModal({ project, onClose }) {
                 {project.usps.map((usp, idx) => (
                   <div
                     key={idx}
-                    className="group/card p-3.5 rounded-2xl bg-[#F8F9FA] hover:bg-white border border-black/[0.04] hover:border-black/15 shadow-2xs hover:shadow-md transition-all duration-200 cursor-default"
+                    className="group/card p-3.5 rounded-2xl bg-[#F8F9FA] hover:bg-white border border-black/[0.04] hover:border-black/15 shadow-2xs hover:shadow-md transition-all duration-300 hover:-translate-y-0.5 cursor-default"
                   >
                     <div className="flex items-center justify-between gap-2">
-                      <span className="font-sans text-xs sm:text-[13px] font-bold text-[#111111] group-hover/card:text-black">
+                      <span className="font-sans text-xs sm:text-[13px] font-bold text-[#111111] group-hover/card:text-black transition-colors">
                         {usp.title}
                       </span>
-                      <span className="px-2.5 py-0.5 rounded-full bg-white group-hover/card:bg-[#111111] group-hover/card:text-white font-mono text-[10px] font-bold text-black/80 shadow-2xs transition-colors">
+                      <span className="px-2.5 py-0.5 rounded-full bg-white group-hover/card:bg-[#111111] group-hover/card:text-white font-mono text-[10px] font-bold text-black/80 shadow-2xs transition-all duration-200 group-hover/card:scale-108">
                         {usp.metric}
                       </span>
                     </div>
-                    <p className="font-sans text-[11px] sm:text-xs text-black/65 group-hover/card:text-black/85 font-medium leading-normal mt-1.5 transition-colors">
+                    <p className="font-sans text-[11px] sm:text-xs text-black/65 group-hover/card:text-black/90 font-medium leading-normal mt-1.5 transition-colors">
                       {usp.desc}
                     </p>
                   </div>

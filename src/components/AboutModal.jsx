@@ -1,8 +1,11 @@
-import React, { useEffect } from 'react';
-import { X, Mail, MapPin, Sparkles, CheckCircle2 } from 'lucide-react';
+import React, { useEffect, useState } from 'react';
+import { X, Mail, Phone, MessageSquare, Linkedin, ArrowUpRight, Copy, Check, Sparkles, MapPin } from 'lucide-react';
 import { creatorProfile } from '../data/projects';
 
 export default function AboutModal({ isOpen, onClose }) {
+  const [copiedEmail, setCopiedEmail] = useState(false);
+  const [copiedPhone, setCopiedPhone] = useState(false);
+
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === 'Escape') onClose();
@@ -15,36 +18,35 @@ export default function AboutModal({ isOpen, onClose }) {
 
   if (!isOpen) return null;
 
+  const handleCopy = (text, type) => {
+    navigator.clipboard.writeText(text);
+    if (type === 'email') {
+      setCopiedEmail(true);
+      setTimeout(() => setCopiedEmail(false), 2000);
+    } else {
+      setCopiedPhone(true);
+      setTimeout(() => setCopiedPhone(false), 2000);
+    }
+  };
+
   return (
     <div
       onClick={onClose}
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/40 backdrop-blur-md overflow-y-auto animate-in fade-in duration-200"
+      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-5 md:p-8 bg-black/45 backdrop-blur-md overflow-y-auto animate-in fade-in duration-200"
     >
       <div
         onClick={(e) => e.stopPropagation()}
-        className="relative w-full max-w-lg bg-white rounded-[32px] p-6 sm:p-8 shadow-depth-modal border border-black/10 flex flex-col justify-between my-auto select-none"
+        className="relative w-full max-w-xl bg-white/95 backdrop-blur-3xl rounded-[36px] p-6 sm:p-8 shadow-[0_30px_90px_-15px_rgba(0,0,0,0.25),0_0_0_1px_rgba(255,255,255,0.8)] border border-white/80 flex flex-col justify-between my-auto select-none overflow-hidden"
       >
-        {/* Header */}
-        <div className="flex items-start justify-between border-b border-black/[0.08] pb-4">
-          <div className="flex items-center gap-3">
-            <div className="w-12 h-12 rounded-full overflow-hidden bg-neutral-100 border border-black/10 shrink-0">
-              <img
-                src="./assets/creator_avatar.png"
-                onError={(e) => {
-                  e.currentTarget.src = './assets/avatar_raw.jpg';
-                }}
-                alt={creatorProfile.name}
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <div>
-              <h3 className="font-display font-extrabold text-xl text-[#111111]">
-                {creatorProfile.name}
-              </h3>
-              <p className="font-mono text-[11px] text-black/50 uppercase tracking-wider font-semibold">
-                {creatorProfile.title}
-              </p>
-            </div>
+        {/* ===================================================================
+            1. HEADER & CLOSE
+            =================================================================== */}
+        <div className="flex items-center justify-between pb-3 border-b border-black/[0.06]">
+          <div className="flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+            <span className="font-mono text-[11px] font-bold tracking-wider text-black/60 uppercase">
+              Creator Profile & Connect
+            </span>
           </div>
 
           <button
@@ -56,62 +58,181 @@ export default function AboutModal({ isOpen, onClose }) {
           </button>
         </div>
 
-        {/* Bio Content */}
-        <div className="my-5 space-y-4">
-          <p className="font-sans text-xs sm:text-sm text-black/80 leading-relaxed font-normal">
-            {creatorProfile.bio}
-          </p>
+        {/* ===================================================================
+            2. REAL PHOTO BANNER & PITCH HEADLINE
+            =================================================================== */}
+        <div className="my-4 space-y-4">
+          
+          {/* Real Photo Card */}
+          <div className="relative w-full aspect-[16/8] sm:aspect-[16/7] rounded-2xl overflow-hidden bg-neutral-100 shadow-sm border border-black/[0.06]">
+            <img
+              src="./assets/arshaan_profile.png"
+              onError={(e) => {
+                e.currentTarget.src = './assets/arshaan_profile_sq.png';
+              }}
+              alt="Arshaan"
+              className="w-full h-full object-cover object-center"
+            />
+            {/* Subtle Gradient & Badge */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
+            <div className="absolute bottom-3 left-3 flex items-center gap-2">
+              <span className="px-2.5 py-0.5 rounded-full bg-white/90 backdrop-blur-md font-sans text-xs font-black text-[#111111]">
+                Arshaan Khan
+              </span>
+              <span className="font-mono text-[10px] text-white/90 font-medium">
+                Frontend Architect
+              </span>
+            </div>
+          </div>
 
-          {/* Quick Metrics */}
-          <div className="grid grid-cols-2 gap-2 pt-1">
+          {/* EXACT REQUESTED PITCH QUOTE */}
+          <div className="p-4 sm:p-5 rounded-2xl bg-[#F8F9FA] border border-black/[0.05] shadow-2xs">
+            <h3 className="font-sans text-base sm:text-lg font-black text-[#111111] leading-snug">
+              “Hey, Are You Looking for A High End Premium Website For Your Business With Immersive experince? Let Connect.”
+            </h3>
+          </div>
+
+          {/* Core Metrics Grid */}
+          <div className="grid grid-cols-2 gap-2">
             {creatorProfile.stats.map((s, idx) => (
               <div
                 key={idx}
-                className="p-3 rounded-2xl bg-[#F7F7F8] border border-black/[0.05] flex flex-col"
+                className="p-3 rounded-xl bg-white border border-black/[0.05] shadow-2xs flex flex-col"
               >
                 <span className="font-mono text-[9px] text-black/40 uppercase tracking-widest font-bold">
                   {s.label}
                 </span>
-                <span className="font-display font-bold text-lg text-[#111111] mt-0.5">
+                <span className="font-display font-bold text-base text-[#111111] mt-0.5">
                   {s.value}
                 </span>
               </div>
             ))}
           </div>
 
-          {/* Core Competencies */}
-          <div className="pt-2">
-            <span className="font-mono text-[10px] text-black/40 uppercase tracking-widest font-bold block mb-2">
-              Capabilities
+          {/* ===============================================================
+              3. CONTACT INFO (WhatsApp, Email, LinkedIn)
+              =============================================================== */}
+          <div className="pt-2 space-y-2">
+            <span className="font-mono text-[10px] text-black/40 uppercase tracking-wider font-bold block">
+              Direct Contact Channels
             </span>
-            <div className="flex flex-wrap gap-1.5">
-              {creatorProfile.skills.map((skill, i) => (
-                <span
-                  key={i}
-                  className="px-2.5 py-1 rounded-full bg-neutral-100 text-black/75 font-sans text-xs font-medium border border-black/[0.04]"
+
+            {/* WhatsApp Direct */}
+            <div className="flex items-center justify-between p-3 rounded-2xl bg-emerald-50/60 border border-emerald-500/20">
+              <div className="flex items-center gap-2.5">
+                <div className="w-8 h-8 rounded-full bg-emerald-500 text-white flex items-center justify-center">
+                  <MessageSquare className="w-4 h-4" />
+                </div>
+                <div>
+                  <span className="block font-mono text-[9px] uppercase font-bold text-emerald-800">
+                    WhatsApp (Fastest Response)
+                  </span>
+                  <span className="font-sans text-xs sm:text-sm font-extrabold text-black">
+                    {creatorProfile.whatsapp}
+                  </span>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-1.5">
+                <button
+                  onClick={() => handleCopy(creatorProfile.whatsapp, 'phone')}
+                  className="p-2 rounded-lg bg-white/90 hover:bg-white text-black/70 hover:text-black border border-black/10 transition-colors cursor-pointer"
+                  title="Copy number"
                 >
-                  {skill}
-                </span>
-              ))}
+                  {copiedPhone ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
+                </button>
+                <a
+                  href={creatorProfile.whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-3.5 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-sans text-xs font-bold transition-all shadow-xs cursor-pointer"
+                >
+                  Chat Now ↗
+                </a>
+              </div>
             </div>
+
+            {/* Email Direct */}
+            <div className="flex items-center justify-between p-3 rounded-2xl bg-white border border-black/[0.06] shadow-2xs">
+              <div className="flex items-center gap-2.5">
+                <div className="w-8 h-8 rounded-full bg-neutral-900 text-white flex items-center justify-center">
+                  <Mail className="w-4 h-4" />
+                </div>
+                <div>
+                  <span className="block font-mono text-[9px] uppercase font-bold text-black/40">
+                    Email Inquiries
+                  </span>
+                  <span className="font-sans text-xs sm:text-sm font-extrabold text-black">
+                    {creatorProfile.email}
+                  </span>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-1.5">
+                <button
+                  onClick={() => handleCopy(creatorProfile.email, 'email')}
+                  className="p-2 rounded-lg bg-neutral-100 hover:bg-neutral-200 text-black/70 hover:text-black transition-colors cursor-pointer"
+                  title="Copy email"
+                >
+                  {copiedEmail ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
+                </button>
+                <a
+                  href={`mailto:${creatorProfile.email}`}
+                  className="px-3.5 py-1.5 rounded-xl bg-[#111111] hover:bg-black text-white font-sans text-xs font-bold transition-all shadow-xs cursor-pointer"
+                >
+                  Send Email ↗
+                </a>
+              </div>
+            </div>
+
+            {/* LinkedIn Direct */}
+            <div className="flex items-center justify-between p-3 rounded-2xl bg-white border border-black/[0.06] shadow-2xs">
+              <div className="flex items-center gap-2.5">
+                <div className="w-8 h-8 rounded-full bg-[#0A66C2] text-white flex items-center justify-center">
+                  <Linkedin className="w-4 h-4" />
+                </div>
+                <div>
+                  <span className="block font-mono text-[9px] uppercase font-bold text-black/40">
+                    Professional Network
+                  </span>
+                  <span className="font-sans text-xs sm:text-sm font-extrabold text-black">
+                    linkedin.com/in/arsh44n
+                  </span>
+                </div>
+              </div>
+
+              <a
+                href={creatorProfile.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-3.5 py-1.5 rounded-xl bg-[#0A66C2] hover:bg-[#004182] text-white font-sans text-xs font-bold transition-all shadow-xs cursor-pointer"
+              >
+                Connect ↗
+              </a>
+            </div>
+
           </div>
+
         </div>
 
-        {/* Footer with Contact Link */}
-        <div className="pt-4 border-t border-black/[0.08] flex items-center justify-between">
+        {/* Footer */}
+        <div className="pt-3 border-t border-black/[0.06] flex items-center justify-between">
           <div className="flex items-center gap-1.5 font-sans text-xs text-black/50">
             <MapPin className="w-3.5 h-3.5 text-black/40" />
             <span>{creatorProfile.location}</span>
           </div>
 
           <a
-            href="mailto:arshaan@users.noreply.github.com"
-            className="flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#111111] hover:bg-black text-white font-sans text-xs font-bold transition-all hover:scale-103 cursor-pointer"
+            href={creatorProfile.whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1.5 px-5 py-2 rounded-full bg-[#111111] hover:bg-black text-white font-sans text-xs font-bold transition-all hover:scale-103 cursor-pointer shadow-md"
           >
-            <Mail className="w-3.5 h-3.5" />
-            <span>Get in Touch</span>
+            <span>Let's Connect</span>
+            <ArrowUpRight className="w-3.5 h-3.5" />
           </a>
         </div>
+
       </div>
     </div>
   );

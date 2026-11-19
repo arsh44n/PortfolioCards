@@ -51,15 +51,12 @@ export default function App() {
       {/* Horizontal Contact Us Form & Direct Social Embeds */}
       <ContactBar />
 
-      {/* Bottom Minimal Studio Bar */}
-      <footer className="relative z-20 w-full px-8 sm:px-14 py-2 flex items-center justify-between font-mono text-[9px] sm:text-[10px] text-black/35 uppercase tracking-widest shrink-0">
+      {/* Clean Minimal Footer (Zero fluff) */}
+      <footer className="relative z-20 w-full px-8 sm:px-14 py-2 flex items-center justify-between font-mono text-[9px] text-black/35 uppercase tracking-widest shrink-0">
+        <div>© 2026 ARSHAAN KHAN</div>
         <div className="flex items-center gap-2">
-          <span>+</span>
-          <span>ARSHAAN // SELECTED WORKS</span>
-        </div>
-        <div className="flex items-center gap-2">
-          <span>EST. 2026 • 10M POINT CLOUD</span>
-          <span>+</span>
+          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+          <span>AVAILABLE FOR COMMISSIONS</span>
         </div>
       </footer>
 
