@@ -27,7 +27,7 @@ export default function CardScrollTrack({ projects, onSelectProject }) {
     };
   }, [updateScrollState]);
 
-  // Smooth scroll left / right
+  // Smooth scroll left / right on desktop buttons
   const scroll = (direction) => {
     if (!trackRef.current) return;
     const step = 380;
@@ -46,13 +46,13 @@ export default function CardScrollTrack({ projects, onSelectProject }) {
   };
 
   return (
-    <div className="relative w-full flex-1 flex flex-col justify-center my-auto py-4 z-10 overflow-hidden">
-      {/* FLOATING LEFT CHEVRON */}
+    <div className="relative w-full max-w-full min-w-0 flex-1 flex flex-col justify-center my-auto py-2 sm:py-4 z-10 overflow-hidden">
+      {/* FLOATING LEFT CHEVRON — HIDDEN ON MOBILE to avoid card overlap */}
       <button
         onClick={() => scroll('left')}
         disabled={!canScrollLeft}
         aria-label="Previous Projects"
-        className={`absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-white/90 backdrop-blur-xl text-[#111111] shadow-[0_10px_30px_rgba(0,0,0,0.08)] flex items-center justify-center transition-all duration-300 cursor-pointer ${
+        className={`hidden sm:flex absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 z-30 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white/95 backdrop-blur-xl text-[#111111] shadow-[0_10px_30px_rgba(0,0,0,0.1)] items-center justify-center transition-all duration-300 cursor-pointer ${
           canScrollLeft
             ? 'opacity-100 hover:scale-105 active:scale-95 hover:bg-white'
             : 'opacity-0 pointer-events-none'
@@ -61,12 +61,12 @@ export default function CardScrollTrack({ projects, onSelectProject }) {
         <ChevronLeft className="w-5 h-5 text-black" />
       </button>
 
-      {/* FLOATING RIGHT CHEVRON */}
+      {/* FLOATING RIGHT CHEVRON — HIDDEN ON MOBILE to avoid card overlap */}
       <button
         onClick={() => scroll('right')}
         disabled={!canScrollRight}
         aria-label="Next Projects"
-        className={`absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-white/90 backdrop-blur-xl text-[#111111] shadow-[0_10px_30px_rgba(0,0,0,0.08)] flex items-center justify-center transition-all duration-300 cursor-pointer ${
+        className={`hidden sm:flex absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 z-30 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white/95 backdrop-blur-xl text-[#111111] shadow-[0_10px_30px_rgba(0,0,0,0.1)] items-center justify-center transition-all duration-300 cursor-pointer ${
           canScrollRight
             ? 'opacity-100 hover:scale-105 active:scale-95 hover:bg-white'
             : 'opacity-0 pointer-events-none'
@@ -75,15 +75,18 @@ export default function CardScrollTrack({ projects, onSelectProject }) {
         <ChevronRight className="w-5 h-5 text-black" />
       </button>
 
-      {/* HORIZONTAL CARDS TRACK */}
+      {/* HORIZONTAL CARDS TRACK: Free-momentum touch sensitive scrolling (No rigid snap) */}
       <div
         ref={trackRef}
         onWheel={handleWheel}
-        className="w-full flex items-center gap-6 sm:gap-8 md:gap-10 px-8 sm:px-14 md:px-20 overflow-x-auto no-scrollbar scroll-smooth py-3 sm:py-5 select-none"
-        style={{ scrollSnapType: 'x proximity' }}
+        style={{
+          WebkitOverflowScrolling: 'touch',
+          overscrollBehaviorX: 'contain',
+        }}
+        className="w-full max-w-full min-w-0 flex items-center gap-4 sm:gap-7 md:gap-9 px-4 sm:px-12 md:px-20 overflow-x-auto no-scrollbar py-3 sm:py-5 select-none"
       >
         {projects.map((project) => (
-          <div key={project.id} style={{ scrollSnapAlign: 'center' }}>
+          <div key={project.id} className="shrink-0">
             <ProjectCard
               project={project}
               onSelect={onSelectProject}

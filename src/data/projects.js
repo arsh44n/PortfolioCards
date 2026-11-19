@@ -10,7 +10,7 @@ export const creatorProfile = {
   linkedinDisplay: "linkedin.com/in/arsh44n",
   avatar: "./assets/arshaan_profile_sq.png",
   avatarFull: "./assets/arshaan_profile.png",
-  pitchText: "Hey, Are You Looking for A High End Premium Website For Your Business With Immersive experince? Let Connect.",
+  pitchText: `Hey,\nAre you looking for a high-end premium website for your business with immersive experience?\nLet's connect.`,
   bio: "Architecting high-conversion digital flagships, 3D interactive systems, and sub-second web platforms. Combining tactile graphic design, kinetic motion physics, and conversion velocity.",
   stats: [
     { label: "PUBLISHED PROJECTS", value: "07" },
@@ -34,7 +34,7 @@ export const projects = [
     title: "Indian Celebritie",
     category: "Luxury Fragrance E-Commerce",
     industry: "Haute Perfumerie & Luxury Retail",
-    liveUrl: "https://arsh44n.github.io/Indian-Celebritie/",
+    liveUrl: "https://arsh44n.github.io/Indian-Celebritie/love-drop.html",
     displayUrl: "indian-celebritie.store",
     image: "./assets/projects/indian_celebritie.png",
     caption: "High-conversion luxury perfume storefront with scent accord telemetry",

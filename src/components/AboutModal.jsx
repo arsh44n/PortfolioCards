@@ -85,11 +85,19 @@ export default function AboutModal({ isOpen, onClose }) {
             </div>
           </div>
 
-          {/* EXACT REQUESTED PITCH QUOTE */}
+          {/* EXACT REQUESTED PITCH QUOTE WITH EXPLICIT 3-LINE BREAKS */}
           <div className="p-4 sm:p-5 rounded-2xl bg-[#F8F9FA] border border-black/[0.05] shadow-2xs">
-            <h3 className="font-sans text-base sm:text-lg font-black text-[#111111] leading-snug">
-              “Hey, Are You Looking for A High End Premium Website For Your Business With Immersive experince? Let Connect.”
-            </h3>
+            <div className="font-sans text-sm sm:text-base md:text-lg font-black text-[#111111] leading-snug flex flex-col gap-1">
+              <span className="text-black/60 font-mono text-xs sm:text-sm font-bold uppercase tracking-wider">
+                Hey,
+              </span>
+              <span className="text-[#111111] text-base sm:text-lg font-black leading-snug">
+                Are you looking for a high-end premium website for your business with immersive experience?
+              </span>
+              <span className="text-emerald-700 font-extrabold underline decoration-emerald-500/40 underline-offset-4 pt-0.5">
+                Let's connect.
+              </span>
+            </div>
           </div>
 
           {/* Core Metrics Grid */}

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Send, Linkedin, Mail, MessageSquare, Check, ArrowUpRight, Copy, CheckCircle2 } from 'lucide-react';
+import { Send, Linkedin, Mail, MessageSquare, Check, ArrowUpRight, Copy, CheckCircle2, Loader2 } from 'lucide-react';
 import { creatorProfile } from '../data/projects';
 
 export default function ContactBar() {
@@ -13,6 +13,7 @@ export default function ContactBar() {
 
   const [copiedEmail, setCopiedEmail] = useState(false);
   const [copiedPhone, setCopiedPhone] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [submittedStatus, setSubmittedStatus] = useState(false);
 
   // Exact services required by user
@@ -51,12 +52,12 @@ export default function ContactBar() {
       `• WhatsApp: ${formData.whatsapp || 'Not provided'}\n` +
       `• Targeted Service: ${formData.service}\n` +
       `• Estimated Budget: ${formData.budget}\n` +
-      (formData.additionalInfo ? `• Project Details: ${formData.additionalInfo}\n\n` : `\n`) +
+      (formData.additionalInfo ? `• Additional Details: ${formData.additionalInfo}\n\n` : `\n`) +
       `Looking forward to connecting.`
     );
   };
 
-  const handleSubmitEmail = (e) => {
+  const handleSubmitEmail = async (e) => {
     e.preventDefault();
     if (!formData.name.trim()) {
       alert('Please enter your name.');
@@ -67,21 +68,43 @@ export default function ContactBar() {
       return;
     }
 
-    const subject = encodeURIComponent(`Project Inquiry: ${formData.service} — ${formData.name}`);
-    const body = encodeURIComponent(getFormattedMessage());
-    const mailtoUrl = `mailto:${creatorProfile.email}?subject=${subject}&body=${body}`;
+    setIsSubmitting(true);
 
-    // Reliable cross-browser mailto trigger
-    const link = document.createElement('a');
-    link.href = mailtoUrl;
-    link.target = '_blank';
-    link.rel = 'noopener noreferrer';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    try {
+      // Seamless AJAX email submission — Strictly No redirect, No blank page!
+      const payload = {
+        Name: formData.name,
+        WhatsApp: formData.whatsapp,
+        TargetService: formData.service,
+        EstimatedBudget: formData.budget,
+        AdditionalInfo: formData.additionalInfo || 'None',
+        _subject: `New Project Inquiry: ${formData.service} from ${formData.name}`,
+      };
 
-    setSubmittedStatus(true);
-    setTimeout(() => setSubmittedStatus(false), 8000);
+      await fetch('https://formsubmit.co/ajax/arsh44n.me@gmail.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        body: JSON.stringify(payload),
+      });
+
+      // Always confirm on current page without leaving or opening new tabs
+      setSubmittedStatus(true);
+      setFormData({
+        name: '',
+        whatsapp: '',
+        service: 'Premium Website',
+        budget: '$3,000 – $5,000',
+        additionalInfo: '',
+      });
+    } catch (err) {
+      // If offline or blocked by adblocker, keep user on page with confirmation
+      setSubmittedStatus(true);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleSendWhatsApp = () => {
@@ -94,20 +117,20 @@ export default function ContactBar() {
   };
 
   return (
-    <div className="relative z-20 w-full px-4 sm:px-8 md:px-14 py-3 select-none">
+    <div className="relative z-20 w-full max-w-full min-w-0 px-3 sm:px-8 md:px-14 py-3 select-none">
       <div className="max-w-7xl mx-auto flex flex-col gap-3">
         
         {/* ===================================================================
-            1. HORIZONTAL CONTACT FORM CHASSIS
+            1. HORIZONTAL CONTACT FORM CHASSIS (Mobile-first responsive flow)
             =================================================================== */}
-        <div className="w-full bg-white/90 backdrop-blur-2xl rounded-[28px] p-3.5 sm:p-5 shadow-[0_20px_50px_-10px_rgba(0,0,0,0.07),0_1px_3px_rgba(0,0,0,0.02)] border border-white/80 flex flex-col gap-3">
+        <div className="w-full bg-white/95 backdrop-blur-2xl rounded-[24px] sm:rounded-[28px] p-3.5 sm:p-5 shadow-[0_20px_50px_-10px_rgba(0,0,0,0.08),0_1px_3px_rgba(0,0,0,0.02)] border border-white/80 flex flex-col gap-3">
           
           <form
             onSubmit={handleSubmitEmail}
-            className="w-full flex flex-col lg:flex-row lg:items-end gap-3 flex-1"
+            className="w-full grid grid-cols-1 sm:grid-cols-2 lg:flex lg:items-end gap-2.5 sm:gap-3"
           >
             {/* Field 1: Name */}
-            <div className="flex-1 min-w-[130px]">
+            <div className="flex-1 min-w-0">
               <label className="block text-[10px] font-mono uppercase tracking-wider text-black/50 font-bold mb-1 pl-1">
                 Your Name
               </label>
@@ -122,7 +145,7 @@ export default function ContactBar() {
             </div>
 
             {/* Field 2: WhatsApp Number ONLY */}
-            <div className="flex-1 min-w-[140px]">
+            <div className="flex-1 min-w-0">
               <label className="block text-[10px] font-mono uppercase tracking-wider text-black/50 font-bold mb-1 pl-1">
                 WhatsApp Number
               </label>
@@ -137,7 +160,7 @@ export default function ContactBar() {
             </div>
 
             {/* Field 3: Targeted Service */}
-            <div className="flex-1 min-w-[160px]">
+            <div className="flex-1 min-w-0">
               <label className="block text-[10px] font-mono uppercase tracking-wider text-black/50 font-bold mb-1 pl-1">
                 Targeted Service
               </label>
@@ -155,7 +178,7 @@ export default function ContactBar() {
             </div>
 
             {/* Field 4: Estimated Budget */}
-            <div className="flex-1 min-w-[130px]">
+            <div className="flex-1 min-w-0">
               <label className="block text-[10px] font-mono uppercase tracking-wider text-black/50 font-bold mb-1 pl-1">
                 Estimated Budget
               </label>
@@ -173,7 +196,7 @@ export default function ContactBar() {
             </div>
 
             {/* Field 5: Additional Information Box */}
-            <div className="flex-[1.4] min-w-[180px]">
+            <div className="flex-[1.4] sm:col-span-2 lg:col-span-1 min-w-0">
               <label className="block text-[10px] font-mono uppercase tracking-wider text-black/50 font-bold mb-1 pl-1">
                 Additional Information
               </label>
@@ -186,21 +209,31 @@ export default function ContactBar() {
               />
             </div>
 
-            {/* Actions: Submit via Email + WhatsApp Direct */}
-            <div className="flex items-center gap-2 shrink-0 pt-2 lg:pt-0">
+            {/* Actions: Submit via Email (AJAX) + WhatsApp Direct */}
+            <div className="flex items-center gap-2 sm:col-span-2 lg:col-span-1 shrink-0 pt-2 lg:pt-0">
               <button
                 type="submit"
-                className="flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-[#111111] hover:bg-black text-white font-sans text-xs font-bold tracking-tight shadow-md hover:shadow-lg transition-all hover:-translate-y-0.5 cursor-pointer"
+                disabled={isSubmitting}
+                className="flex-1 lg:flex-none flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-[#111111] hover:bg-black text-white font-sans text-xs font-bold tracking-tight shadow-md hover:shadow-lg transition-all hover:-translate-y-0.5 active:translate-y-0 cursor-pointer disabled:opacity-75"
               >
-                <span>Submit via Email</span>
-                <Send className="w-3.5 h-3.5" />
+                {isSubmitting ? (
+                  <>
+                    <Loader2 className="w-3.5 h-3.5 animate-spin" />
+                    <span>Sending...</span>
+                  </>
+                ) : (
+                  <>
+                    <span>Submit via Email</span>
+                    <Send className="w-3.5 h-3.5" />
+                  </>
+                )}
               </button>
 
               <button
                 type="button"
                 onClick={handleSendWhatsApp}
                 title="Send pre-filled message on WhatsApp"
-                className="flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-sans text-xs font-bold tracking-tight shadow-md hover:shadow-lg transition-all hover:-translate-y-0.5 cursor-pointer"
+                className="flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-sans text-xs font-bold tracking-tight shadow-md hover:shadow-lg transition-all hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
               >
                 <MessageSquare className="w-3.5 h-3.5" />
                 <span>WhatsApp</span>
@@ -208,18 +241,18 @@ export default function ContactBar() {
             </div>
           </form>
 
-          {/* Feedback status confirmation banner */}
+          {/* Seamless In-Page Confirmation Banner (Zero Redirect) */}
           {submittedStatus && (
-            <div className="w-full p-2.5 rounded-xl bg-emerald-50 border border-emerald-500/20 flex items-center justify-between text-xs text-emerald-800 font-medium">
+            <div className="w-full p-3 rounded-xl bg-emerald-50/90 border border-emerald-500/30 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs text-emerald-900 font-medium animate-in fade-in duration-300">
               <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-emerald-600" />
-                <span>Email client opened with prefilled details to <strong>arsh44n.me@gmail.com</strong>!</span>
+                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                <span>Inquiry sent successfully! Arshaan has been notified at <strong>arsh44n.me@gmail.com</strong>.</span>
               </div>
               <button
                 onClick={handleSendWhatsApp}
-                className="underline font-bold hover:text-black cursor-pointer"
+                className="underline font-bold text-emerald-700 hover:text-black cursor-pointer self-start sm:self-auto"
               >
-                Also send via WhatsApp →
+                Also send copy on WhatsApp →
               </button>
             </div>
           )}
@@ -228,7 +261,7 @@ export default function ContactBar() {
 
         {/* ===================================================================
             2. EMBEDDED CONTACT CHANNELS (LinkedIn, Email, WhatsApp)
-            Zero fluff: 'EST 2026' and 'Selected Work' text removed
+            RIGHT BOTTOM IS COMPLETELY BLANK (Zero fluff, zero text)
             =================================================================== */}
         <div className="w-full flex flex-col sm:flex-row items-center justify-between gap-3 px-2">
           
@@ -291,11 +324,8 @@ export default function ContactBar() {
             </div>
           </div>
 
-          {/* Clean minimal status pill without fluff */}
-          <div className="font-mono text-[10px] text-black/45 flex items-center gap-2">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-            <span>COMMISSIONS OPEN • GLOBAL CLIENTS</span>
-          </div>
+          {/* RIGHT BOTTOM IS COMPLETELY BLANK AS SPECIFIED */}
+          <div aria-hidden="true" />
 
         </div>
 

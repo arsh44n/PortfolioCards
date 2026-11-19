@@ -30,7 +30,7 @@ export default function ProjectCard({ project, onSelect }) {
           : 'perspective(1000px) rotateY(0deg) rotateX(0deg) translateY(0px)',
         transition: isHovered ? 'transform 0.15s ease-out' : 'transform 0.5s ease-out',
       }}
-      className="group relative w-[310px] sm:w-[350px] md:w-[370px] shrink-0 bg-white/95 backdrop-blur-2xl rounded-[32px] overflow-hidden shadow-[0_20px_50px_-12px_rgba(0,0,0,0.07),0_1px_3px_rgba(0,0,0,0.02)] hover:shadow-[0_35px_80px_-15px_rgba(0,0,0,0.14),0_2px_6px_rgba(0,0,0,0.04)] cursor-pointer select-none flex flex-col justify-between border border-white/80"
+      className="group relative w-[280px] sm:w-[340px] md:w-[370px] shrink-0 bg-white/95 backdrop-blur-2xl rounded-[26px] sm:rounded-[32px] overflow-hidden shadow-[0_20px_50px_-12px_rgba(0,0,0,0.07),0_1px_3px_rgba(0,0,0,0.02)] hover:shadow-[0_35px_80px_-15px_rgba(0,0,0,0.14),0_2px_6px_rgba(0,0,0,0.04)] cursor-pointer select-none flex flex-col justify-between border border-white/80 active:scale-[0.98] transition-all"
     >
       {/* ===================================================================
           1. VISUAL FILLS THE CARD (Edge-to-Edge with Smooth Perspective)

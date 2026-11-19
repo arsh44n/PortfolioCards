@@ -30,7 +30,7 @@ export default function App() {
   };
 
   return (
-    <main className="relative w-screen min-h-screen overflow-x-hidden overflow-y-auto lg:overflow-hidden lg:h-screen flex flex-col justify-between bg-white text-[#111111] select-none">
+    <main className="relative w-full max-w-full min-w-0 min-h-screen lg:h-screen overflow-x-hidden overflow-y-auto lg:overflow-hidden flex flex-col justify-between bg-white text-[#111111] select-none">
       {/* 3D Celestial 10-Million Density Particle Matrix Canvas */}
       <Background3D />
 
@@ -41,7 +41,7 @@ export default function App() {
       />
 
       {/* Center 3D Project Cards Stage */}
-      <div id="card-track-section" className="relative z-10 flex-1 flex flex-col justify-center">
+      <div id="card-track-section" className="relative z-10 flex-1 flex flex-col justify-center min-w-0 w-full max-w-full overflow-hidden">
         <CardScrollTrack
           projects={allProjects}
           onSelectProject={(project) => setSelectedProject(project)}
@@ -51,13 +51,10 @@ export default function App() {
       {/* Horizontal Contact Us Form & Direct Social Embeds */}
       <ContactBar />
 
-      {/* Clean Minimal Footer (Zero fluff) */}
-      <footer className="relative z-20 w-full px-8 sm:px-14 py-2 flex items-center justify-between font-mono text-[9px] text-black/35 uppercase tracking-widest shrink-0">
+      {/* Clean Minimal Footer (Right side completely blank as specified) */}
+      <footer className="relative z-20 w-full px-6 sm:px-14 py-3 flex items-center justify-between font-mono text-[9px] text-black/35 uppercase tracking-widest shrink-0">
         <div>© 2026 ARSHAAN KHAN</div>
-        <div className="flex items-center gap-2">
-          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-          <span>AVAILABLE FOR COMMISSIONS</span>
-        </div>
+        <div aria-hidden="true" />
       </footer>
 
       {/* Expanded Project Inspection UI Modal */}
